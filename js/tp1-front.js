@@ -34,7 +34,7 @@ function printResults(data) {
     $('#third-panel').empty();
     $.each(data.results.bindings, function (i, val) {
         var movieButton = $("<button>", {class: "btn btn-lg btn-info btn-block col-md-12"});
-        movieButton.text(val.movie.value);
+        movieButton.text(val.name.value);
         movieButton.attr('style', 'font-size: 12px');
         movieButton.click(function () {
             $('#third-panel').empty();

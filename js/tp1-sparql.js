@@ -12,8 +12,7 @@ function performQuery(callback, method, urlEndpoint, formData) {
     $.ajax({
         type: method,
         url: urlEndpoint,
-        data: formData,
-        async: false
+        data: formData
     }).done(callback);
 };
 
@@ -58,15 +57,26 @@ function resourcePhoto(callback) {
 }
 
 function directedMovies(callback) {
-    performGetQuery("select distinct ?movie where { dbr:" + resource + " ^dbo:director ?movie }  limit 15", callback);
+    workedMovies(callback,"director");
 }
 
 function producedMovies(callback) {
-    performGetQuery("select distinct ?movie where { dbr:" + resource + "  ^dbo:producer ?movie  }  limit 15", callback);
+    workedMovies(callback,"producer");
 }
 
 function starredMovies(callback) {
-    performGetQuery("select distinct ?movie where { dbr:" + resource + "  ^dbo:starring ?movie  }  limit 15", callback);
+    workedMovies(callback,"starring");
+}
+
+function workedMovies(callback, work) {
+    performGetQuery("select distinct ?movie ?name " +
+        "where { "+
+        "dbr:" + resource + " ^dbo:"+work+" ?movie  "+
+        "service <http://dbpedia.org/sparql>{"+
+        "?movie foaf:name ?name" +
+        "}"+
+        "} "+
+        " limit 15", callback);
 }
 
 function commentResource(resource, comment, callback) {
