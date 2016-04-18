@@ -33,9 +33,33 @@ function printResults(data) {
     $('#second-panel').empty();
     $('#third-panel').empty();
     $.each(data.results.bindings, function (i, val) {
-        var movieButton = $("<button>", {class: "btn btn-lg btn-info btn-block col-md-12"});
-        movieButton.text(val.name.value);
-        movieButton.attr('style', 'font-size: 12px');
+        var movieButton = $("<a>", {class: "thumbnail col-md-12"});
+        var movieWrapper = $("<div>",{class:"col-md-9"});
+        var imgWrapper = $("<div>",{class:"col-md-3"});
+        var movieTitle = $("<h3>");
+        movieTitle.text(val.name.value);
+        var movieBudget = $("<p>");
+        movieBudget.text("Budget: U$D "+ val.budget.value);
+        var movieRuntime = $("<p>");
+        movieRuntime.text(" Runtime: " + val.runtime.value/60 + " min");
+        var img = $("<img>");
+        img.attr('src',"default.jpg");
+        img.attr('style',"height:100px");
+
+        movieWrapper.append(movieTitle);
+        movieWrapper.append(movieBudget);
+        movieWrapper.append(movieRuntime);
+        imgWrapper.append(img);
+
+
+        movieButton.append(imgWrapper);
+        movieButton.append(movieWrapper);
+
+        searchMovie(val.name.value,function(result){
+            img.attr('src', getImgPath(result.results[0].poster_path));
+        });
+
+        movieButton.attr('href', '#');
         movieButton.click(function () {
             $('#third-panel').empty();
             getComments(val.movie.value, function (data) {

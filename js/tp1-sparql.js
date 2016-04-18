@@ -69,11 +69,13 @@ function starredMovies(callback) {
 }
 
 function workedMovies(callback, work) {
-    performGetQuery("select distinct ?movie ?name " +
+    performGetQuery("select distinct ?movie ?name ?runtime ?budget " +
         "where { "+
         "dbr:" + resource + " ^dbo:"+work+" ?movie  "+
         "service <http://dbpedia.org/sparql>{"+
-        "?movie foaf:name ?name" +
+        "?movie foaf:name ?name ;" +
+        " dbo:budget ?budget ;" +
+        " dbo:runtime ?runtime " +
         "}"+
         "} "+
         " limit 15", callback);
