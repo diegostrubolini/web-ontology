@@ -1,17 +1,481 @@
 <?xml version="1.0"?>
-<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+<rdf:RDF xmlns="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#"
      xml:base="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2">
-    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
-    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-</Ontology>
+     xmlns:dbo="http://dbpedia.org/ontology#"
+     xmlns:dbr="http://dbpedia.org/resource#"
+     xmlns:ontologies="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#minCardinality -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#minCardinality"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/coaches -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/coaches"/>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/coachesPlayer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/coachesPlayer">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/coaches"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/hasPlayer"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/hasPlayer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/hasPlayer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#broadcastBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#broadcastBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Match"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Broadcaster"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#coaches -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#coaches">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#worksFor"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#isCoachedBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Coach"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasLocalTeam -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasLocalTeam">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasTeam"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasPlayer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasPlayer">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasWorker"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#playsFor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasReferee -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasReferee">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Match"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Referee"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasTeam -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasTeam">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Match"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasVisitantTeam -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasVisitantTeam">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasTeam"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasWorker -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasWorker"/>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#isCoachedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#isCoachedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#hasWorker"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#playsFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#playsFor">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#worksFor"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Player"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#takesPlace -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#takesPlace">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Match"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Stadium"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#worksFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#worksFor">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#date -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#date">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Match"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Coach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Coach">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#ExPlayerCoach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#ExPlayerCoach">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Coach"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Player"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#FieldPerson -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#FieldPerson">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Match -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Match"/>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Player -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Player">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#FieldPerson"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Referee"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Position -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Position">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Defender"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Forward"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#GoalKeeper"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Midfielder"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Referee -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Referee">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#FieldPerson"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Stadium -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Stadium"/>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Team -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Team"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Alfredo_Grelak -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Alfredo_Grelak">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Coach"/>
+        <ontologies:coaches rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Quilmes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Antonio_Liberti -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Antonio_Liberti">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Stadium"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Brian_Mansilla -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Brian_Mansilla">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Player"/>
+        <playsFor rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Quilmes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Defender -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Defender">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Position"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Forward -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Forward">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Position"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Gabriel_Mercado -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Gabriel_Mercado">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Player"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#GoalKeeper -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#GoalKeeper">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Position"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Jonatan_Maidana -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Jonatan_Maidana">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Player"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Jose_Luis_Meiszner -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Jose_Luis_Meiszner">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Stadium"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Lucas_Alario -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Lucas_Alario">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Player"/>
+        <playsFor rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#River"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Marcelo_Barovero -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Marcelo_Barovero">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Player"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Marcelo_Gallardo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Marcelo_Gallardo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Coach"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Player"/>
+        <ontologies:coaches rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#River"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Midfielder -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Midfielder">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Position"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Nestor_Pitana -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Nestor_Pitana">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Referee"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Quilmes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Quilmes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Team"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Quilmes-River-21-04-2015 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Quilmes-River-21-04-2015">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Match"/>
+        <broadcastBy rdf:resource="http://dbpedia.org/resource/BBC_One"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#River -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#River">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Team"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#River-Quilmes-20-05-2015 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#River-Quilmes-20-05-2015">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Match"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Rodrigo_Braña -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Rodrigo_Braña">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Player"/>
+        <playsFor rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Quilmes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Sebastian_Romero -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Sebastian_Romero">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Player"/>
+        <playsFor rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Quilmes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Walter_Benitez -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Walter_Benitez">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diegostrubolini/ontologies/2016/4/tp2#Player"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
 
 
 
